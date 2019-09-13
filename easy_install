@@ -2,3 +2,5 @@ sudo apt-get update
 sudo apt-get install mercurial
 make
 sudo aws-cloud-controller-manager
+https://kubernetes.io/docs/tasks/administer-cluster/running-cloud-controller/
+create cloud_config.txt because local hack needs the file
