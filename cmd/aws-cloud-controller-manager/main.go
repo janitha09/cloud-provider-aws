@@ -61,6 +61,7 @@ func main() {
 
 	goflag.CommandLine.Parse([]string{})
 	s, err := options.NewCloudControllerManagerOptions()
+	glog.Infof("Janitha %s \n %s", s,err)
 	if err != nil {
 		glog.Fatalf("unable to initialize command options: %v", err)
 	}
@@ -74,6 +75,7 @@ for a Kubernetes cluster.`,
 			utilflag.PrintFlags(cmd.Flags())
 
 			c, err := s.Config()
+			glog.Info("Janitha aws-cloud-controller-manager: ", c)
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "%v\n", err)
 				os.Exit(1)
@@ -89,6 +91,7 @@ for a Kubernetes cluster.`,
 	fs := command.Flags()
 	namedFlagSets := s.Flags()
 	for _, f := range namedFlagSets.FlagSets {
+		//glog.Info("Janitha FlagSet", f)
 		fs.AddFlagSet(f)
 	}
 
@@ -98,8 +101,9 @@ for a Kubernetes cluster.`,
 	logs.InitLogs()
 	defer logs.FlushLogs()
 
-	glog.V(1).Infof("aws-cloud-controller-manager version: %s", version)
+	glog.Infof("Janitha aws-cloud-controller-manager version: %s", version)
 
+	glog.Infof("Janitha aws-cloud-controller-manager: %s +++:", aws.ProviderName)
 	s.KubeCloudShared.CloudProvider.Name = aws.ProviderName
 	if err := command.Execute(); err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)

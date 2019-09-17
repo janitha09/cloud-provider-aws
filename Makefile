@@ -49,3 +49,7 @@ vet:
 .PHONY: update-fmt
 update-fmt:
 	./hack/update-gofmt.sh
+
+.PHONY: clean
+clean:
+	rm aws-cloud-controller-manager || true

@@ -4,3 +4,6 @@ make
 sudo aws-cloud-controller-manager
 https://kubernetes.io/docs/tasks/administer-cluster/running-cloud-controller/
 create cloud_config.txt because local hack needs the file
+https://kubernetes.slack.com/archives/C718BPBQ8/p1542659959135200 this apparently doesn't work
+go get glog then copy to GOROOT manually
+sudo -E ./cloud-controller-manager --v=10 --vmodule= --feature-gates=AllAlpha=false --cloud-provider=aws --cloud-config= --kubeconfig /var/run/kubernetes/controller.kubeconfig --use-service-account-credentials --leader-elect=false --master=https://localhost:6443
